@@ -1,0 +1,119 @@
+div{display:block;}
+
+body{
+	
+	}
+
+#wrapper{
+	width: 95%;
+	min-width:800px;
+	margin:auto;
+	
+}
+
+#header{
+	
+	background:#E0E0E0;
+	height:180px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0.37, #999996),
+	color-stop(0.84, #F0EEE8)
+	);
+	background-image: -o-linear-gradient(bottom, #999996 37%, #F0EEE8 84%);
+	background-image: -moz-linear-gradient(bottom, #999996 37%, #F0EEE8 84%);
+	background-image: -webkit-linear-gradient(bottom, #999996 37%, #F0EEE8 84%);
+	background-image: -ms-linear-gradient(bottom, #999996 37%, #F0EEE8 84%);
+	background-image: linear-gradient(to bottom, #999996 37%, #F0EEE8 84%);
+	
+	}
+	
+
+#header h1{
+	margin: 20px;
+	margin-left:30px;
+	padding: 20px;
+	color: darkslategrey;
+	font-family: Georgia, serif;
+	font-size: 45px;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+	display:inline;
+}
+
+#header h1 #FirstLetter{
+	font-size: 80px;
+	display:inline;
+	padding:0px;margin:0px;
+	color:orange;
+}
+
+#logo{
+	width: 100px;
+	height: 100px;
+	margin-top:30px;
+	
+}
+
+#aside{
+	float:left;
+	padding:20px; margin:0px;
+	background:#E8E8E8 ;
+	width:15%;
+	min-height:500px;
+}
+
+
+#content{
+	float:left;
+	padding:20px; margin:0px;
+	background:#F8F8F8;
+	width:78%;
+	min-height:500px;
+}
+
+
+#kategoria{
+	color: orange;
+	height:20px;
+	width:130px;
+	padding: 10px;
+	padding-left:30px;
+	border-radius: 10px;
+	background: rgb(40, 40, 40);
+	background: -moz-linear-gradient(30deg, rgb(40, 40, 40) 49%, rgb(99, 99, 99) 70%);
+	background: -webkit-linear-gradient(30deg, rgb(40, 40, 40) 49%, rgb(99, 99, 99) 70%);
+	background: -o-linear-gradient(30deg, rgb(40, 40, 40) 49%, rgb(99, 99, 99) 70%);
+	background: -ms-linear-gradient(30deg, rgb(40, 40, 40) 49%, rgb(99, 99, 99) 70%);
+	background: linear-gradient(120deg, rgb(40, 40, 40) 49%, rgb(99, 99, 99) 70%);
+			
+}
+
+#aside>ul{
+	list-style-type:circle;
+}
+
+#aside>li{
+text-decoration:none;
+}
+
+a{
+	margin-left:10px;
+	text-decoration:none;
+	color: #383838;
+	padding-bottom:10px; 
+	font-size:18px;
+	transition:All 1.2s;
+	-webkit-transition:All 1.2s ;
+	-moz-transition:All 1.2s ;
+	-o-transition:All 1.2s ;
+}
+
+a:visited {text-decoration:none;} 
+a:hover {
+	color:orange;
+	text-decoration:none;
+	font-weight: strong;
+	
+	}

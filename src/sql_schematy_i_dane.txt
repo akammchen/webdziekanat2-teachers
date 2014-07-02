@@ -1,0 +1,82 @@
+//@author Paweł
+
+//ja to robilem na lokalnym serwerze wampserver 
+//i na taki jest skonfigurowany projekt w hibernate
+
+wampserver na localhost
+login="root"
+pass=""
+
+//schematy i dane, narazie tylko dla dwoch tabel student i personalnumber oznaczajaca inex
+
+DROP TABLE IF EXISTS `student`
+
+CREATE TABLE `student`(
+    `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+    `firstname` VARCHAR(50) ,
+    `lastname` VARCHAR(50) ,
+     PRIMARY KEY (`id`)
+    )
+	COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DEFAULT
+
+DROP TABLE IF EXISTS `personalNumber`	
+
+create table `personalNumber`(
+	`id` bigint(10) not null auto_increment,
+	`personalNumber` bigint(10),
+	`studentId` bigint(10),
+	`password` varchar(20),
+	primary key(`id`),
+	index `fkStudent` (`studentId`),
+	constraint `fkStudent` foreign key (`studentId`) references `student` (`id`)
+	);
+	COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DEFAULT
+
+
+create table `course`(
+`id` bigint(10) not null auto_increment,
+`name` varchar(80),
+primary key(`id`)
+);
+
+
+
+INSERT INTO  `product`.`course` (
+`id` ,
+`name`
+)
+VALUES (
+NULL ,  'projekt zespolowy'
+), (
+NULL ,  'teoretyczne podstawy informatyki'
+);
+
+	
+	
+INSERT INTO `projekt`.`student` (`id`, `firstname`, `lastname`) VALUES (NULL, 'Jan', 'Kowalski'), (NULL, 'Magda', 'Nowak');
+
+INSERT INTO `projekt`.`personalNumber` (`id`, `personalNumber`, `studentId`, `password`) VALUES (NULL, '194455', '2', '12345'), (NULL, '168899', '1', 'haselko');
+
+
+
+
+
+
+
+
+//------------------------
+//payment
+CREATE TABLE IF NOT EXISTS `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  `value` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+//dane payment
+INSERT INTO `dbstudents2`.`payment` (`id`, `name`, `value`) VALUES (NULL, 'md', '305'), (NULL, 'wdi', '150');

@@ -1,0 +1,14 @@
+# ignore all bin directories
+# matches "bin" in any subfolder
+bin/
+
+#ignore hibernate config (passwords ...)
+hibernate_products.cfg.xml
+hibernate_students.cfg.xml
+hibernate_wspolna.cfg.xml
+
+# ignore all target directories
+target/
+
+# ignore all files ending with ~
+*~ 
