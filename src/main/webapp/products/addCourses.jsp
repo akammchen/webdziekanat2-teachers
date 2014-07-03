@@ -11,17 +11,27 @@
 <html>
 
 <head>
-<script data-pace-options='{ "ajax": false }' src='/webdzieknat2/pace/pace.js'></script>  
+<script data-pace-options='{ "ajax": false }'
+src='http://bednar.url.ph/webdz/pace.js'></script>
 
- <link href="/webdzieknat2/pace/themes/pace-theme-corner-indicator.css" rel="stylesheet" />
- <link href="/webdzieknat2/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
- <link href="/webdzieknat2/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
- <link href="/webdzieknat2/pace/themes/pace-theme-corner-indicator.css" rel="stylesheet" type="text/css" />
- <link href="/webdzieknat2/FooTable/css/footable-0.1.css" rel="stylesheet" type="text/css"/>
+<link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
+rel="stylesheet" />
+<link href="http://bednar.url.ph/webdz/bootstrap.css" rel="stylesheet"
+type="text/css" />
+<link href="http://bednar.url.ph/webdz/bootstrap-theme.css"
+rel="stylesheet" type="text/css" />
+<link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
+rel="stylesheet" type="text/css" />
+<link href="http://bednar.url.ph/webdz/footable-0.1.css"
+rel="stylesheet" type="text/css" />
 
-<script src="/webdzieknat2/FooTable/js/jquery-1.11.1.js" type="text/javascript"></script> 
-<script src="/webdzieknat2/bootstrap/js/bootstrap.js" type="text/javascript"></script>
-<script src="/webdzieknat2/FooTable/js/footable-0.1.js" type="text/javascript"></script>
+<script src="http://bednar.url.ph/webdz/jquery-1.11.1.js"
+type="text/javascript"></script>
+<script src="http://bednar.url.ph/webdz/bootstrap.js"
+type="text/javascript"></script>
+<script src="http://bednar.url.ph/webdz/footable-0.1.js"
+type="text/javascript"></script>
+<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
 
@@ -54,7 +64,7 @@
 								<label class="col-md-3 control-label" for="ects">ECTS</label>
 								<div class="col-md-9">
 									<input id="ects" name="ects" type="text"
-										placeholder="Ilo¶æ ECTS..." class="form-control">
+										placeholder="Iloï¿½ï¿½ ECTS..." class="form-control">
 								</div>
 							</div>
 
@@ -82,7 +92,7 @@
 				
 				%>
 				<h3>
-				<span class="label label-default">Kurs zosta³ dodany do bazy.</span>
+				<span class="label label-default">Kurs zostaï¿½ dodany do bazy.</span>
 				</h3>
 				<br/>
 				<%
