@@ -6,25 +6,27 @@
 <head>
 
 <script data-pace-options='{ "ajax": false }'
-	src='/webdzieknat2/pace/pace.js'></script>
+src='http://bednar.url.ph/webdz/pace.js'></script>
 
-<link href="/webdzieknat2/pace/themes/pace-theme-corner-indicator.css"
-	rel="stylesheet" />
-<link href="/webdzieknat2/bootstrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="/webdzieknat2/bootstrap/css/bootstrap-theme.css"
-	rel="stylesheet" type="text/css" />
-<link href="/webdzieknat2/pace/themes/pace-theme-corner-indicator.css"
-	rel="stylesheet" type="text/css" />
-<link href="/webdzieknat2/FooTable/css/footable-0.1.css"
-	rel="stylesheet" type="text/css" />
+<link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
+rel="stylesheet" />
+<link href="http://bednar.url.ph/webdz/bootstrap.css" rel="stylesheet"
+type="text/css" />
+<link href="http://bednar.url.ph/webdz/bootstrap-theme.css"
+rel="stylesheet" type="text/css" />
+<link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
+rel="stylesheet" type="text/css" />
+<link href="http://bednar.url.ph/webdz/footable-0.1.css"
+rel="stylesheet" type="text/css" />
 
-<script src="/webdzieknat2/FooTable/js/jquery-1.11.1.js"
-	type="text/javascript"></script>
-<script src="/webdzieknat2/bootstrap/js/bootstrap.js"
-	type="text/javascript"></script>
-<script src="/webdzieknat2/FooTable/js/footable-0.1.js"
-	type="text/javascript"></script>
+<script src="http://bednar.url.ph/webdz/jquery-1.11.1.js"
+type="text/javascript"></script>
+<script src="http://bednar.url.ph/webdz/bootstrap.js"
+type="text/javascript"></script>
+<script src="http://bednar.url.ph/webdz/footable-0.1.js"
+type="text/javascript"></script>
+<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+
 
 </head>
 <body>
@@ -47,12 +49,12 @@
 						data-toggle="dropdown">OSOBY<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="students/student/studentPageAdmin.jsp"
-								target="frame">U¿ytkownicy</a></li>
+								target="frame">Uï¿½ytkownicy</a></li>
 							<li class="divider"></li>
 							<li><a href="students/personalNumber/personalNumberPageAdmin.jsp"
 								target="frame">Numery identyfikacyjne</a></li>
 							<li class="divider"></li>
-							<li><a href="students/rating/ratingPage.jsp" target="frame">Oceny studentów</a></li>
+							<li><a href="students/rating/ratingPage.jsp" target="frame">Oceny studentï¿½w</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">KURSY <b class="caret"></b></a>
@@ -68,7 +70,7 @@
 		</div>
 	</nav>
 <!-- 	<div class="jumbotron" style="padding-top:5px; padding-bottom:5px;"> -->
-<!-- 			<h2 class="text-center">Witaj w wirtualnym dziekanacie Politechniki £ódzkiej!</h2> -->
+<!-- 			<h2 class="text-center">Witaj w wirtualnym dziekanacie Politechniki ï¿½ï¿½dzkiej!</h2> -->
 <!-- 	</div> -->
 	<div id="content">
 		<iframe name="frame" height="800px" width="100%" frameBorder="0"></iframe>
