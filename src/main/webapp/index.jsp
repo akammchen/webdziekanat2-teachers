@@ -27,7 +27,7 @@
 <head>
 
 <script data-pace-options='{ "ajax": false }'
-	src='/webdzieknat2/pace/pace.js'></script>
+	src='http://bednar.url.ph/webdz/pace.js'></script>
 
 <link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
 	rel="stylesheet" />
