@@ -59,9 +59,7 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="well well-sm">
-					<form class="form-horizontal"
-						
-						method="post">
+					<form class="form-horizontal" method="post">
 						<fieldset>
 							<legend class="text-center">Wstawianie oceny</legend>
 
@@ -71,60 +69,65 @@
 									<select class="form-control" name="subject" id="subject">
 										<%
 											CourseDaoInterface cDaoInterface;
-										cDaoInterface = new HibernateCourseDaoImpl();
-												List courses1 = cDaoInterface.getAll();
+											cDaoInterface = new HibernateCourseDaoImpl();
+											List courses1 = cDaoInterface.getAll();
 
-												java.util.Iterator iterator2c = courses1.iterator();
-												while (iterator2c.hasNext()) {
+											java.util.Iterator iterator2c = courses1.iterator();
+											while (iterator2c.hasNext()) {
 
-													Course cour = (Course) iterator2c.next();
-													String przedmiot = "";
-													
-													
-														if (cour.getName() != null) {
-																przedmiot = cour.getName().toString();
-																//break;
-															}
-											
+												Course cour = (Course) iterator2c.next();
+												String przedmiot = "";
+
+												if (cour.getName() != null) {
+													przedmiot = cour.getName().toString();
+													//break;
+												}
 										%>
 
-										<option value="<%=cour.getId()%>"><%= cour.getName()%></option>										<%
-										}
-												
+										<option value="<%=cour.getId()%>"><%=cour.getName()%></option>
+										<%
+											}
 										%>
 
 									</select>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-3 control-label" for="index">Numer indeksu</label>
+								<label class="col-md-3 control-label" for="index">Numer
+									indeksu</label>
 								<div class="col-md-9">
 									<select class="form-control" name="index" id="index">
 										<%
 											PersonalNumberDaoInterface pnDaoInterface;
 											pnDaoInterface = new HibernatePersonalNumberDaoImpl();
-												List indexes1 = pnDaoInterface.getAll();
+											List indexes1 = pnDaoInterface.getAll();
 
-												java.util.Iterator iterator2 = indexes1.iterator();
-												while (iterator2.hasNext()) {
+											java.util.Iterator iterator2 = indexes1.iterator();
+											while (iterator2.hasNext()) {
 
-													PersonalNumber pers = (PersonalNumber) iterator2.next();
-													String indeks = "";
-													
-													
-														if (pers.getStudent() != null) {
-														//tylko indeksy przypisane											
+												PersonalNumber pers = (PersonalNumber) iterator2.next();
+												String indeks = "";
+												String imie = "";
+												String nazwisko = "";
+
+												if (pers.getStudent() != null) {
+													//tylko indeksy przypisane		
+													imie = pers.getStudent().getFirstname()
+															.toString();
+													nazwisko = pers.getStudent().getLastname()
+															.toString();
 										%>
 
-										<option value="<%=pers.getStudent().getId().toString()%>"><%= pers.getPersonalNumber()%></option>										<%
-										}
-												}		
+										<option value="<%=pers.getStudent().getId().toString()%>"><%=imie%> <%=nazwisko%>, numer indeksu: <%=pers.getPersonalNumber()%></option>
+										<%
+											}
+											}
 										%>
 
 									</select>
 								</div>
 							</div>
-							
+
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="rate">Ocena</label>
 								<div class="col-md-9">
@@ -132,9 +135,9 @@
 										placeholder="Wpisz ocenê [2-5]" class="form-control">
 								</div>
 							</div>
-							
-							
-							
+
+
+
 							<div class="form-group">
 								<div class="col-md-12 text-center">
 									<button type="submit" class="btn btn-primary btn-lg">Wpisz</button>
@@ -142,46 +145,47 @@
 							</div>
 						</fieldset>
 						<%
-						String subject = request.getParameter("subject");
-						String student = request.getParameter("index");
-						String mark = request.getParameter("rate");
-						
-						if(subject!=null && student!=null && mark!=null){
-							int mark2 = Integer.parseInt(mark);
-							int subject2 = Integer.parseInt(subject);
-							int student2 = Integer.parseInt(student);
-							
-							if(mark2>1 && mark2<6){
-								System.out.println("sub:"+subject2+" ind:"+student2+" mark:"+mark2);
-								
-								Course cour = new Course();
-								cour.setId((long)subject2);
-								Student stud = new Student();
-								stud.setId((long)student2);
-								
-								RatingId rt = new RatingId();
-								rt.setStudent(stud);
-								rt.setCourse(cour);
-								Rating rtt = new Rating();
-								rtt.setPk(rt);
-								rtt.setRating(mark2);
-								
-								RatingDaoInterface ratingDaoInterface;
-								ratingDaoInterface = new HibernateRatingDaoImpl();
-								ratingDaoInterface.add(rtt);
-							
+							String subject = request.getParameter("subject");
+							String student = request.getParameter("index");
+							String mark = request.getParameter("rate");
+
+							if (subject != null && student != null && mark != null) {
+								int mark2 = Integer.parseInt(mark);
+								int subject2 = Integer.parseInt(subject);
+								int student2 = Integer.parseInt(student);
+
+								if (mark2 > 1 && mark2 < 6) {
+									System.out.println("sub:" + subject2 + " ind:" + student2
+											+ " mark:" + mark2);
+
+									Course cour = new Course();
+									cour.setId((long) subject2);
+									Student stud = new Student();
+									stud.setId((long) student2);
+
+									RatingId rt = new RatingId();
+									rt.setStudent(stud);
+									rt.setCourse(cour);
+									Rating rtt = new Rating();
+									rtt.setPk(rt);
+									rtt.setRating(mark2);
+
+									RatingDaoInterface ratingDaoInterface;
+									ratingDaoInterface = new HibernateRatingDaoImpl();
+									ratingDaoInterface.add(rtt);
+
+								}
+
+								else {
+									//System.out.println("Niepoprawna ocena!");
+						%><h3>
+							<span class="label label-default">Niepoprawna ocena!</span>
+						</h3>
+						<br />
+						<%
 							}
-							
-							else {
-								//System.out.println("Niepoprawna ocena!");
-								%><h3>
-								<span class="label label-default">Niepoprawna ocena!</span>
-								</h3>
-								<br/><%
+
 							}
-							
-						}
-						
 						%>
 					</form>
 				</div>

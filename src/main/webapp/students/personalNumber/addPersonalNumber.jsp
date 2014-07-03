@@ -76,6 +76,8 @@
 									PersonalNumber pn = new PersonalNumber();
 									pn.setPersonalNumber(Integer.parseInt(indeks));
 									pn.setPassword(haslo);
+									pn.setIs_administrator("0");
+									pn.setIs_student("0");
 
 									PersonalNumberDaoInterface personalNumberDaoInterface;
 									personalNumberDaoInterface = new HibernatePersonalNumberDaoImpl();

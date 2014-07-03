@@ -37,19 +37,22 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="MainPage.jsp">WEB DZIEKANAT&nbsp <span
-					class="glyphicon glyphicon-book"></span></a>
+				<a class="navbar-brand" href="MainPageAdmin.jsp">WEB DZIEKANAT&nbsp-&nbspADMIN <span
+					class="glyphicon glyphicon-user"></span></a>
 			</div>
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">STUDENT<b class="caret"></b></a>
+						data-toggle="dropdown">OSOBY<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="students/student/studentPage.jsp"
-								target="frame">Studenci</a></li>
+							<li><a href="students/student/studentPageAdmin.jsp"
+								target="frame">U¿ytkownicy</a></li>
 							<li class="divider"></li>
-							<li><a href="students/rating/ratingPage.jsp" target="frame">Oceny</a></li>
+							<li><a href="students/personalNumber/personalNumberPageAdmin.jsp"
+								target="frame">Numery identyfikacyjne</a></li>
+							<li class="divider"></li>
+							<li><a href="students/rating/ratingPage.jsp" target="frame">Oceny studentów</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">KURSY <b class="caret"></b></a>

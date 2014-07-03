@@ -37,11 +37,12 @@
 <body>
 <div class="row">
 <div class="col-sm-3 col-sm-offset-2 text-center">
-	<img src="/webdzieknat2/webPics/students.jpg" alt="Studenci" class="img-thumbnail">
+	<img src="/webdzieknat2/webPics/users.png" alt="Studenci" class="img-thumbnail">
 	</div>
 <ul class="pager">
-		<li><a href="printStudents.jsp" target="frameStudents">Lista studentów</a>
+		<li><a href="printStudentsAdmin.jsp" target="frameStudents">Lista u¿ytkowników systemu</a>
 		</li>
+		<li><a href="addStudent.jsp" target="frameStudents">Dodaj u¿ytkownika</a></li>
 	</ul>
 </div>
 	

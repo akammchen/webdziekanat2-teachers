@@ -29,15 +29,19 @@ public class PersonalNumber implements java.io.Serializable{
 	@Column(name = "password")
 	private String password;
 	@Column(name = "is_administrator")
-	private String is_administrator;
+	private String  is_administrator;
+	@Column(name = "is_student")
+	private String  is_student;
 
 
-
+	
+	
 	@Override
 	public String toString() {
 		return "PersonalNumber [id=" + id + ", personalNumber="
 				+ personalNumber + ", student=" + student + ", password="
-				+ password + ", is_administrator=" + is_administrator + "]";
+				+ password + ", is_administrator=" + is_administrator
+				+ ", is_student=" + is_student + "]";
 	}
 
 	public Long getId() {
@@ -75,6 +79,15 @@ public class PersonalNumber implements java.io.Serializable{
 	public void setIs_administrator(String is_administrator) {
 		this.is_administrator = is_administrator;
 	}
+
+	public String getIs_student() {
+		return is_student;
+	}
+
+	public void setIs_student(String is_student) {
+		this.is_student = is_student;
+	}
+
 	
 	
 	

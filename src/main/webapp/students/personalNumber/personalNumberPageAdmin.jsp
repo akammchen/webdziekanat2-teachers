@@ -37,15 +37,16 @@
 <body>
 <div class="row">
 <div class="col-sm-3 col-sm-offset-2 text-center">
-	<img src="/webdzieknat2/webPics/students.jpg" alt="Studenci" class="img-thumbnail">
+	<img src="/webdzieknat2/webPics/numeration.jpg" alt="Studenci" class="img-thumbnail">
 	</div>
 <ul class="pager">
-		<li><a href="printStudents.jsp" target="frameStudents">Lista studentów</a>
+		<li><a href="printPersonalNumbersAdmin.jsp" target="framePersonalNumber">Lista numerów</a>
 		</li>
+		<li><a href="addPersonalNumber.jsp" target="framePersonalNumber">Dodaj</a></li>
 	</ul>
 </div>
 	
-	<iframe name="frameStudents" style="margin-top: 10px;" width="100%"
+	<iframe name="framePersonalNumber" style="margin-top: 10px;" width="100%"
 		height="2000px" frameBorder="0"></iframe>
 </body>
 </html>

@@ -25,7 +25,6 @@
 	int iShowRows = 10;
 	int iTotalSearchRecords = 5;
 
-	int x = 0;
 	int iTotalRows = nullIntconv(request.getParameter("iTotalRows"));
 	int iTotalPages = nullIntconv(request.getParameter("iTotalPages"));
 	int iPageNo = nullIntconv(request.getParameter("iPageNo"));
@@ -43,7 +42,7 @@
 	StudentDaoInterface studentDaoInterface;
 	studentDaoInterface = new HibernateStudentDaoImpl();
 
-	List students = studentDaoInterface.getAll();
+	List students = studentDaoInterface.getPage(iPageNo, iShowRows);
 	List students1 = studentDaoInterface.getAll();
 
 	java.util.Iterator iterator = students.iterator();
@@ -93,9 +92,13 @@
 	<table width="100%" class="footable">
 		<thead>
 			<tr>
-				<th data-class="expand">Nazwisko</th>
+				<th data-class="expand">ID</th>
+				<th data-hide="phone">Nazwisko</th>
 				<th data-hide="phone">Imiê</th>
+				<th data-hide="phone">Rola</th>
+				<th data-hide="phone,tablet">Adres</th>
 				<th data-hide="phone,tablet">Indeks</th>
+				<th>#</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -103,36 +106,45 @@
 				while (iterator.hasNext()) {
 
 					Student student = (Student) iterator.next();
-					
+
 					String indeks = "brak";
-					String stud = "0";
+					String kto = "brak przypisania";
 					PersonalNumberDaoInterface personalNumberDaoInterface;
 					personalNumberDaoInterface = new HibernatePersonalNumberDaoImpl();
 					List pn = personalNumberDaoInterface.getAll();
 					java.util.Iterator iterator1 = pn.iterator();
 					while (iterator1.hasNext()) {
 						PersonalNumber tmp1 = (PersonalNumber) iterator1.next();
-						if(tmp1.getStudent()!=null){
- 								if (tmp1.getStudent().getId().equals(student.getId())) {
- 									indeks = tmp1.getPersonalNumber().toString();
- 									stud = tmp1.getIs_student().toString();
- 									break;
- 								}					
- 						}
+						if (tmp1.getStudent() != null) {
+							if (tmp1.getStudent().getId().equals(student.getId())) {
+								indeks = tmp1.getPersonalNumber().toString();
+								if (tmp1.getIs_administrator().equals("1")) {
+									kto = "administrator";
+								}
+								else if (tmp1.getIs_student().equals("1")) {
+									kto = "student";
+								}
+								else { kto = "nauczyciel"; }
+								break;
+							}
+						}
 					}
-					if (stud.equals("1")){
-						x++;
 			%>
 			<tr>
+				<td><%=student.getId()%></td>
 				<td><%=student.getLastname()%></td>
 				<td><%=student.getFirstname()%></td>
+				<td><%=kto%></td>
+				<td><%=student.getAddress()%></td>
 				<td><%=indeks%></td>
-				
+				<td style="width: 150px;"><a
+					href="editStudent.jsp?id_student=<%=student.getId()%>"
+					style="cursor: pointer;" class="btn btn-warning">Edytuj</a> <a
+					href="removeStudent.jsp?id_student=<%=student.getId()%>"
+					style="cursor: pointer;" class="btn btn-danger">Usuñ</a></td>
 			</tr>
 			<%
-					}
 				}
-			iTotalRows = x;
 			%>
 		</tbody>
 		<%
@@ -166,7 +178,7 @@
 				if ((cPage * iTotalSearchRecords) - (iTotalSearchRecords) > 0) {
 		%>
 		<li><a
-			href="printStudents.jsp?iPageNo=<%=prePageNo%>&cPageNo=<%=prePageNo%>">
+			href="printStudentsAdmin.jsp?iPageNo=<%=prePageNo%>&cPageNo=<%=prePageNo%>">
 				<< Previous</a></li>
 		<%
 			}
@@ -174,24 +186,25 @@
 				for (i = ((cPage * iTotalSearchRecords) - (iTotalSearchRecords - 1)); i <= (cPage * iTotalSearchRecords); i++) {
 					if (i == ((iPageNo / iShowRows) + 1)) {
 		%>
-		<li><a href="printStudents.jsp?iPageNo=<%=i%>"
+		<li><a href="printStudentsAdmin.jsp?iPageNo=<%=i%>"
 			style="cursor: pointer; color: blue"><b><%=i%></b></a></li>
 		<%
 			} else if (i <= iTotalPages) {
 		%>
-		<li><a href="printStudents.jsp?iPageNo=<%=i%>"><%=i%></a></li>
+		<li><a href="printStudentsAdmin.jsp?iPageNo=<%=i%>"><%=i%></a></li>
 		<%
 			}
 				}
 				if (iTotalPages > iTotalSearchRecords && i < iTotalPages) {
 		%>
-		<li><a href="printStudents.jsp?iPageNo=<%=i%>&cPageNo=<%=i%>">
+		<li><a href="printStudentsAdmin.jsp?iPageNo=<%=i%>&cPageNo=<%=i%>">
 				>> Next</a></li>
 		<%
 			}
 			}
 		%>
-		<b>Rekordy <%=iStartResultNo%> - <%=iEndResultNo%> Wszystkich rekordów <%=iTotalRows%>
+		<b>Rekordy <%=iStartResultNo%> - <%=iEndResultNo%> Wszystkich
+			rekordów <%=iTotalRows%>
 		</b>
 
 	</ul>

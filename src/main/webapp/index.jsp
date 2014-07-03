@@ -110,9 +110,15 @@ $(document).ready(function(){
 										PersonalNumber personalNumber = (PersonalNumber) iterator.next();
 										if (personalNumber.getStudent()!=null)
 										{
-											if (personalNumber.getPersonalNumber().equals(indeks) && personalNumber.getPassword().equals(haslo))
+											if (personalNumber.getPersonalNumber().equals(indeks) && personalNumber.getPassword().equals(haslo) && personalNumber.getIs_administrator().equals("0"))
 											{
 												String site = new String("MainPage.jsp");
+				 								response.setStatus(response.SC_MOVED_TEMPORARILY);
+				 								response.setHeader("Location", site);
+											}
+											else if (personalNumber.getPersonalNumber().equals(indeks) && personalNumber.getPassword().equals(haslo) && personalNumber.getIs_administrator().equals("1"))
+											{
+												String site = new String("MainPageAdmin.jsp");
 				 								response.setStatus(response.SC_MOVED_TEMPORARILY);
 				 								response.setHeader("Location", site);
 											}

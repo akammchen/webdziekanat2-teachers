@@ -112,14 +112,19 @@
 												while (iterator2.hasNext()) {
 
 													PersonalNumber pers = (PersonalNumber) iterator2.next();
-													String indeks = "";
-													
-													
-														if (pers.getStudent() != null) {
-														//tylko indeksy przypisane											
+													String imie = "";
+													String nazwisko = "";
+
+													if (pers.getStudent() != null) {
+														//tylko indeksy przypisane		
+														imie = pers.getStudent().getFirstname()
+																.toString();
+														nazwisko = pers.getStudent().getLastname()
+																.toString();								
 										%>
 
-										<option value="<%=pers.getStudent().getId().toString()%>"><%= pers.getPersonalNumber()%></option>										<%
+										<option value="<%=pers.getStudent().getId().toString()%>"><%=imie%> <%=nazwisko%>, numer indeksu: <%=pers.getPersonalNumber()%></option>										
+										<%
 										}
 												}		
 										%>

@@ -25,7 +25,6 @@
 	int iShowRows = 10;
 	int iTotalSearchRecords = 5;
 
-	int x = 0;
 	int iTotalRows = nullIntconv(request.getParameter("iTotalRows"));
 	int iTotalPages = nullIntconv(request.getParameter("iTotalPages"));
 	int iPageNo = nullIntconv(request.getParameter("iPageNo"));
@@ -40,15 +39,15 @@
 		iPageNo = Math.abs((iPageNo - 1) * iShowRows);
 	}
 
-	StudentDaoInterface studentDaoInterface;
-	studentDaoInterface = new HibernateStudentDaoImpl();
+	PersonalNumberDaoInterface personalNumberDaoInterface;
+	personalNumberDaoInterface = new HibernatePersonalNumberDaoImpl();
 
-	List students = studentDaoInterface.getAll();
-	List students1 = studentDaoInterface.getAll();
+	List personalNumbers = personalNumberDaoInterface.getPage(iPageNo, iShowRows);
+	List personalNumbers1 = personalNumberDaoInterface.getAll();
 
-	java.util.Iterator iterator = students.iterator();
+	java.util.Iterator iterator = personalNumbers.iterator();
 
-	iTotalRows = students1.size();
+	iTotalRows = personalNumbers1.size();
 %>
 
 
@@ -93,46 +92,45 @@
 	<table width="100%" class="footable">
 		<thead>
 			<tr>
-				<th data-class="expand">Nazwisko</th>
+				<th data-class="expand">ID</th>
+				<th data-hide="phone">Numer</th>
 				<th data-hide="phone">Imiê</th>
-				<th data-hide="phone,tablet">Indeks</th>
+				<th data-hide="phone,tablet">Nazwisko</th>
+				<th data-hide="phone,tablet">Has³o</th>
+				<th>#</th>
 			</tr>
 		</thead>
 		<tbody>
 			<%
 				while (iterator.hasNext()) {
 
-					Student student = (Student) iterator.next();
-					
-					String indeks = "brak";
-					String stud = "0";
-					PersonalNumberDaoInterface personalNumberDaoInterface;
-					personalNumberDaoInterface = new HibernatePersonalNumberDaoImpl();
-					List pn = personalNumberDaoInterface.getAll();
-					java.util.Iterator iterator1 = pn.iterator();
-					while (iterator1.hasNext()) {
-						PersonalNumber tmp1 = (PersonalNumber) iterator1.next();
-						if(tmp1.getStudent()!=null){
- 								if (tmp1.getStudent().getId().equals(student.getId())) {
- 									indeks = tmp1.getPersonalNumber().toString();
- 									stud = tmp1.getIs_student().toString();
- 									break;
- 								}					
- 						}
+					PersonalNumber personalNumber = (PersonalNumber) iterator.next();
+					String imie = "brak przypisania";
+					String nazwisko = "brak przypisania";
+					if (personalNumber.getStudent()!=null)
+					{
+						imie = personalNumber.getStudent().getFirstname().toString();
+						nazwisko = personalNumber.getStudent().getLastname().toString();
 					}
-					if (stud.equals("1")){
-						x++;
+							
+					
 			%>
 			<tr>
-				<td><%=student.getLastname()%></td>
-				<td><%=student.getFirstname()%></td>
-				<td><%=indeks%></td>
-				
+				<td><%=personalNumber.getId()%></td>
+				<td><%=personalNumber.getPersonalNumber()%></td>
+				<td><%=imie%></td>
+				<td><%=nazwisko%></td>
+				<td><%=personalNumber.getPassword()%></td>
+				<td style="width: 240px;"><a
+					href="PersonalNumberAssignmentAdmin.jsp?id_personalNumber=<%=personalNumber.getId()%>"
+					style="cursor: pointer;" class="btn btn-primary">Przypisz</a> <a
+					href="editPersonalNumber.jsp?id_personalNumber=<%=personalNumber.getId()%>"
+					style="cursor: pointer;" class="btn btn-warning">Edytuj</a> <a
+					href="removePersonalNumber.jsp?id_personalNumber=<%=personalNumber.getId()%>"
+					style="cursor: pointer;" class="btn btn-danger">Usuñ</a></td>
 			</tr>
 			<%
-					}
 				}
-			iTotalRows = x;
 			%>
 		</tbody>
 		<%
@@ -166,7 +164,7 @@
 				if ((cPage * iTotalSearchRecords) - (iTotalSearchRecords) > 0) {
 		%>
 		<li><a
-			href="printStudents.jsp?iPageNo=<%=prePageNo%>&cPageNo=<%=prePageNo%>">
+			href="printPersonalNumbers.jsp?iPageNo=<%=prePageNo%>&cPageNo=<%=prePageNo%>">
 				<< Previous</a></li>
 		<%
 			}
@@ -174,18 +172,18 @@
 				for (i = ((cPage * iTotalSearchRecords) - (iTotalSearchRecords - 1)); i <= (cPage * iTotalSearchRecords); i++) {
 					if (i == ((iPageNo / iShowRows) + 1)) {
 		%>
-		<li><a href="printStudents.jsp?iPageNo=<%=i%>"
+		<li><a href="printPersonalNumbers.jsp?iPageNo=<%=i%>"
 			style="cursor: pointer; color: blue"><b><%=i%></b></a></li>
 		<%
 			} else if (i <= iTotalPages) {
 		%>
-		<li><a href="printStudents.jsp?iPageNo=<%=i%>"><%=i%></a></li>
+		<li><a href="printPersonalNumbers.jsp?iPageNo=<%=i%>"><%=i%></a></li>
 		<%
 			}
 				}
 				if (iTotalPages > iTotalSearchRecords && i < iTotalPages) {
 		%>
-		<li><a href="printStudents.jsp?iPageNo=<%=i%>&cPageNo=<%=i%>">
+		<li><a href="printPersonalNumbers.jsp?iPageNo=<%=i%>&cPageNo=<%=i%>">
 				>> Next</a></li>
 		<%
 			}
