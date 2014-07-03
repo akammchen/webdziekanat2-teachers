@@ -155,6 +155,7 @@
 			<tr>
 				<th data-class="expand">Kurs</th>
 				<th data-class="expand">Ocena</th>
+				<th data-class="expand">Edycja oceny</th>
 			</tr>
 		</thead>
 		
@@ -171,6 +172,9 @@
 			<tr>
 				<td><%=marks.getPk().getCourse().getName()%></td>
 				<td><%=marks.getRating()%></td>
+				<td style="width: 100px;" ><a
+					href="editRating.jsp?id=<%=marks.getPk().getStudent().getId()%>&course=<%=marks.getPk().getCourse().getId()%>"
+					style="cursor: pointer;" class="btn btn-primary">Edytuj</a></td>
 			</tr>
 			<%
 				}}

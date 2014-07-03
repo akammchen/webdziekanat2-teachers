@@ -43,6 +43,7 @@
 	StudentDaoInterface studentDaoInterface;
 	studentDaoInterface = new HibernateStudentDaoImpl();
 
+	//List students = studentDaoInterface.getPage(iPageNo, iShowRows);
 	List students = studentDaoInterface.getAll();
 	List students1 = studentDaoInterface.getAll();
 

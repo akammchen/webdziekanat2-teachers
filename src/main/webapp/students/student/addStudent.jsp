@@ -33,7 +33,7 @@
 				<div class="well well-sm">
 					<form class="form-horizontal" action="addStudent.jsp" method="post">
 						<fieldset>
-							<legend class="text-center">Dodawanie studenta do bazy</legend>
+							<legend class="text-center">Dodawanie u¿ytkownika do bazy</legend>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="firstname">Imiê</label>
 								<div class="col-md-9">
