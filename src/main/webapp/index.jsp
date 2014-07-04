@@ -27,24 +27,24 @@
 <head>
 
 <script data-pace-options='{ "ajax": false }'
-	src='http://bednar.url.ph/webdz/pace.js'></script>
+	src='/webdzieknat2/pace/pace.js'></script>
 
-<link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
+<link href="/webdzieknat2/pace/themes/pace-theme-corner-indicator.css"
 	rel="stylesheet" />
-<link href="http://bednar.url.ph/webdz/bootstrap.css" rel="stylesheet"
+<link href="/webdzieknat2/bootstrap/css/bootstrap.css" rel="stylesheet"
 	type="text/css" />
-<link href="http://bednar.url.ph/webdz/bootstrap-theme.css"
+<link href="/webdzieknat2/bootstrap/css/bootstrap-theme.css"
 	rel="stylesheet" type="text/css" />
-<link href="http://bednar.url.ph/webdz/pace-theme-corner-indicator.css"
+<link href="/webdzieknat2/pace/themes/pace-theme-corner-indicator.css"
 	rel="stylesheet" type="text/css" />
-<link href="http://bednar.url.ph/webdz/footable-0.1.css"
+<link href="/webdzieknat2/FooTable/css/footable-0.1.css"
 	rel="stylesheet" type="text/css" />
 
-<script src="http://bednar.url.ph/webdz/jquery-1.11.1.js"
+<script src="/webdzieknat2/FooTable/js/jquery-1.11.1.js"
 	type="text/javascript"></script>
-<script src="http://bednar.url.ph/webdz/bootstrap.js"
+<script src="/webdzieknat2/bootstrap/js/bootstrap.js"
 	type="text/javascript"></script>
-<script src="http://bednar.url.ph/webdz/footable-0.1.js"
+<script src="/webdzieknat2/FooTable/js/footable-0.1.js"
 	type="text/javascript"></script>
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <script type="text/javascript">
@@ -80,7 +80,7 @@ $(document).ready(function(){
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Zaloguj siï¿½</h3>
+						<h3 class="panel-title">Zaloguj siê</h3>
 					</div>
 					<div class="panel-body">
 						<form accept-charset="UTF-8" role="form">
@@ -90,7 +90,7 @@ $(document).ready(function(){
 										type="text">
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="hasï¿½o" name="password"
+									<input class="form-control" placeholder="has³o" name="password"
 										type="password" value="">
 								</div>
 								<input class="btn btn-lg btn-success btn-block" type="submit"
